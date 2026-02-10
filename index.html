@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Maya Reynolds, PsyD - Clinical Psychologist</title>
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
+  <style type="text/tailwindcss">
+    @theme {
+      --color-warm-cream: #faf8f3;
+      --color-sage: #7a8d7e;
+      --color-warm-taupe: #a89f94;
+      --color-deep-clay: #6b5344;
+      --color-soft-sand: #e8e0d5;
+      --color-accent-sage: #6b8678;
+      --color-text-dark: #3d3d3d;
+      
+      --font-serif: 'Merriweather', Georgia, serif;
+      --font-sans: 'Lora', Garamond, serif;
+    }
+
+    @layer base {
+      body {
+        @apply bg-warm-cream text-text-dark font-sans;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        @apply font-serif font-bold;
+      }
+    }
+
+    @layer components {
+      .divider-line {
+        @apply h-px bg-gradient-to-r from-transparent via-sage to-transparent;
+      }
+
+      .btn-primary {
+        @apply px-8 py-3 bg-sage text-warm-cream font-serif font-bold
+               transition-all duration-300 hover:bg-accent-sage hover:shadow-lg
+               hover:-translate-y-0.5 active:scale-95;
+      }
+
+      .btn-secondary {
+        @apply px-8 py-3 border-2 border-sage text-sage font-serif font-bold
+               transition-all duration-300 hover:bg-sage hover:text-warm-cream
+               hover:-translate-y-0.5 active:scale-95;
+      }
+
+    
+      .card {
+        @apply bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow;
+        background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,245,240,0.95) 100%);
+        border: 1px solid rgba(122, 141, 126, 0.1);
+      }
+
+      .section-bg {
+        @apply bg-soft-sand;
+      }
+
+     
+      .accent-underline {
+        @apply relative inline-block;
+      }
+
+      .accent-underline::after {
+        @apply absolute bottom-0 left-0 h-1 bg-accent-sage transition-all duration-300;
+        content: '';
+        width: 60%;
+      }
+
+     
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in-up {
+        animation: fadeInUp 0.6s ease-out forwards;
+      }
+
+  
+      .fade-in-up-1 { animation-delay: 0.1s; }
+      .fade-in-up-2 { animation-delay: 0.2s; }
+      .fade-in-up-3 { animation-delay: 0.3s; }
+      .fade-in-up-4 { animation-delay: 0.4s; }
+    }
+  </style>
+</head>
+
+<body class="scroll-smooth">
+
+<!-- NAVIGATION HEADER -->
+<header class="sticky top-0 z-50 bg-warm-cream/95 backdrop-blur-md border-b border-soft-sand shadow-sm">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-5">
+    
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-sage flex items-center justify-center">
+        <span class="text-warm-cream font-serif font-bold text-lg">M</span>
+      </div>
+      <span class="text-lg font-serif font-bold text-text-dark hidden sm:block">Dr. Maya Reynolds</span>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex gap-10 text-sm font-medium">
+      <a href="#about" class="text-text-dark hover:text-sage transition-colors">About</a>
+      <a href="#approach" class="text-text-dark hover:text-sage transition-colors">My Approach</a>
+      <a href="#specialties" class="text-text-dark hover:text-sage transition-colors">Specialties</a>
+      <a href="#contact" class="text-text-dark hover:text-sage transition-colors">Contact</a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button id="hamburger" class="md:hidden text-2xl text-sage hover:text-accent-sage transition">
+      ☰
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="fixed inset-0 z-40 opacity-0 invisible transition-all duration-300" style="background-color: rgba(0, 0, 0, 0.5);">
+  <div class="fixed left-0 top-0 h-full w-64 bg-warm-cream z-50 transform -translate-x-full transition-transform duration-300 shadow-lg">
+    <button id="closeBtn" class="absolute top-6 right-6 text-2xl text-sage hover:text-accent-sage transition">✕</button>
+    
+    <nav class="pt-20 flex flex-col">
+      <a href="#about" class="menu-link px-6 py-3 text-lg font-medium text-text-dark hover:bg-soft-sand transition-colors">About</a>
+      <a href="#approach" class="menu-link px-6 py-3 text-lg font-medium text-text-dark hover:bg-soft-sand transition-colors">My Approach</a>
+      <a href="#specialties" class="menu-link px-6 py-3 text-lg font-medium text-text-dark hover:bg-soft-sand transition-colors">Specialties</a>
+      <a href="#contact" class="menu-link px-6 py-3 text-lg font-medium text-text-dark hover:bg-soft-sand transition-colors">Contact</a>
+    </nav>
+  </div>
+</div>
+
+
+
+
+<!-- HERO SECTION -->
+<section class="relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 py-16 md:py-24 lg:py-32">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
+      
+      <!-- Left: Text Content -->
+      <div class="flex flex-col justify-center fade-in-up">
+        <p class="text-sage font-serif font-bold text-sm mb-3 tracking-wide">LICENSED CLINICAL PSYCHOLOGIST</p>
+        
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-text-dark mb-6 leading-tight">
+          Dr. Maya Reynolds, <span class="text-sage">PsyD</span>
+        </h1>
+        
+        <p class="text-lg text-warm-taupe font-serif mb-8 max-w-xl leading-relaxed">
+          Therapy for anxiety, trauma, and burnout. Helping high-achieving individuals find peace, resilience, and balance.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <button class="btn-primary cursor-pointer">Schedule a Consultation</button>
+          <button class="btn-secondary cursor-pointer">Learn More</button>
+        </div>
+      </div>
+
+      <!-- Right: Visual Element -->
+      <div class="fade-in-up fade-in-up-2 relative">
+        <div class="relative w-full aspect-square max-w-md mx-auto">
+          <div class="absolute inset-0 bg-sage opacity-10 rounded-3xl transform rotate-6"></div>
+          
+          <div class="relative rounded-2xl overflow-hidden shadow-xl border-8 border-warm-cream">
+            <img
+              src="./images/10.png"
+              alt="Dr. Maya Reynolds"
+              class="w-80 h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-sage/20 to-transparent"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="absolute bottom-0 left-0 right-0 h-px divider-line"></div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="section-bg py-16 md:py-24">
+  <div class="max-w-4xl mx-auto px-6">
+    <h2 class="text-4xl md:text-5xl font-serif font-bold text-text-dark mb-12 text-center">
+      <span class="accent-underline">About Me</span>
+    </h2>
+
+    <div class="space-y-6 text-lg text-text-dark leading-relaxed font-serif">
+      <p class="fade-in-up">
+        I'm a licensed clinical psychologist based in Santa Monica, California, offering therapy for adults who feel overwhelmed by anxiety, stress, or the lingering effects of past experiences. Many of the people I work with are high-achieving, thoughtful, and self-aware—but internally feel exhausted, stuck in overthinking, or emotionally on edge.
+      </p>
+
+      <p class="fade-in-up fade-in-up-1">
+        My work often focuses on anxiety, panic, trauma, and burnout. Clients frequently come to me feeling "functional" on the outside while quietly struggling with constant worry, tension in their body, difficulty sleeping, or a sense that they're always bracing for something to go wrong.
+      </p>
+
+      <p class="fade-in-up fade-in-up-2">
+        I take a warm, collaborative, and grounded approach to therapy. Sessions are structured enough to feel supportive, while still leaving space for reflection and depth. I integrate evidence-based methods such as cognitive-behavioral therapy (CBT), EMDR, mindfulness-based practices, and body-oriented techniques.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- MY APPROACH SECTION -->
+<section id="approach" class="py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-4xl md:text-5xl font-serif font-bold text-text-dark mb-4 text-center">
+      <span class="accent-underline">My Therapeutic Approach</span>
+    </h2>
+    
+    <p class="text-center text-warm-taupe text-lg font-serif mb-16 max-w-2xl mx-auto">
+      I believe therapy works best when clients feel respected, understood, and actively involved in the process.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="card fade-in-up">
+        <h3 class="text-2xl font-serif font-bold text-text-dark mb-4">Evidence-Based Methods</h3>
+        <p class="text-warm-taupe font-serif leading-relaxed">
+          I use CBT, EMDR, mindfulness-based practices, and body-oriented techniques to address both emotional and physiological aspects of what you're experiencing.
+        </p>
+      </div>
+
+      <div class="card fade-in-up fade-in-up-1">
+        <h3 class="text-2xl font-serif font-bold text-text-dark mb-4">Trauma-Informed Care</h3>
+        <p class="text-warm-taupe font-serif leading-relaxed">
+          I work with adults who have experienced single-incident trauma or complex patterns. My approach emphasizes safety, stabilization, and developing more regulated daily life.
+        </p>
+      </div>
+
+      <div class="card fade-in-up fade-in-up-2">
+        <h3 class="text-2xl font-serif font-bold text-text-dark mb-4">Burnout & Perfectionism</h3>
+        <p class="text-warm-taupe font-serif leading-relaxed">
+          Many entrepreneurs and creatives feel disconnected after years of pushing through stress. Therapy becomes a space to reconnect and develop sustainable living.
+        </p>
+      </div>
+
+      <div class="card fade-in-up fade-in-up-3">
+        <h3 class="text-2xl font-serif font-bold text-text-dark mb-4">Calm, Supportive Space</h3>
+        <p class="text-warm-taupe font-serif leading-relaxed">
+          My office is a quiet, private space designed to feel calm and grounding, with natural light and a comfortable, uncluttered environment.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALTIES SECTION -->
+<section id="specialties" class="section-bg py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-4xl md:text-5xl font-serif font-bold text-text-dark mb-4 text-center">
+      <span class="accent-underline">Areas of Specialization</span>
+    </h2>
+
+    <p class="text-center text-warm-taupe text-lg font-serif mb-16 max-w-2xl mx-auto">
+      I specialize in helping high-achieving individuals navigate complex emotional landscapes.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="group relative overflow-hidden rounded-2xl bg-sage p-8 text-warm-cream hover:shadow-xl transition-all duration-300">
+        <div class="absolute inset-0 bg-gradient-to-br from-accent-sage to-sage opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="relative">
+          <h3 class="text-2xl font-serif font-bold mb-3">Anxiety & Panic</h3>
+          <p class="font-serif leading-relaxed text-warm-cream/90">
+            Managing generalized anxiety, panic attacks, and the physical symptoms that accompany them.
+          </p>
+        </div>
+      </div>
+
+      <div class="group relative overflow-hidden rounded-2xl bg-sage p-8 text-warm-cream hover:shadow-xl transition-all duration-300">
+        <div class="absolute inset-0 bg-gradient-to-br from-accent-sage to-sage opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="relative">
+          <h3 class="text-2xl font-serif font-bold mb-3">Trauma & PTSD</h3>
+          <p class="font-serif leading-relaxed text-warm-cream/90">
+            Processing both single-incident and complex trauma with emphasis on safety and healing.
+          </p>
+        </div>
+      </div>
+
+      <div class="group relative overflow-hidden rounded-2xl bg-sage p-8 text-warm-cream hover:shadow-xl transition-all duration-300">
+        <div class="absolute inset-0 bg-gradient-to-br from-accent-sage to-sage opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="relative">
+          <h3 class="text-2xl font-serif font-bold mb-3">Professional Burnout</h3>
+          <p class="font-serif leading-relaxed text-warm-cream/90">
+            Supporting entrepreneurs and professionals in finding sustainable balance and reconnection.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+           
+<section id="office" class="section-bg py-16 md:py-24 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <!-- Section Title -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-text-dark mb-4">
+        <span class="accent-underline">A Calm Space for Healing</span>
+      </h2>
+      <p class="text-lg text-warm-taupe font-serif max-w-2xl mx-auto">
+        Your therapy experience begins the moment you walk through the door. My office is thoughtfully designed to be a sanctuary—a place where you can feel truly safe, heard, and supported.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mb-16">
+      
+      <div class="md:row-span-2 fade-in-up">
+        <div class="relative rounded-3xl overflow-hidden shadow-xl h-96 md:h-full min-h-96">
+          <img
+            src="./images/12v.jpg"
+            alt="Serene therapy office with natural light and comfortable seating"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-sage/40 via-transparent to-transparent"></div>
+        </div>
+      </div>
+
+      <div class="fade-in-up fade-in-up-1">
+        <div class="card h-full flex flex-col">
+          <div class="w-12 h-12 rounded-full bg-sage/10 mb-4 flex items-center justify-center">
+            <span class="text-2xl">🌿</span>
+          </div>
+          <h3 class="text-2xl font-serif font-bold text-text-dark mb-4">Natural Light & Greenery</h3>
+          <p class="text-warm-taupe font-serif leading-relaxed flex-grow">
+            Soft natural light streams through large windows, creating a warm and inviting atmosphere. The space is accented with carefully chosen plants and natural elements that evoke calm and growth.
+          </p>
+        </div>
+      </div>
+
+      <div class="fade-in-up fade-in-up-2">
+        <div class="card h-full flex flex-col">
+          <div class="w-12 h-12 rounded-full bg-sage/10 mb-4 flex items-center justify-center">
+            <span class="text-2xl">🔇</span>
+          </div>
+          <h3 class="text-2xl font-serif font-bold text-text-dark mb-4">Complete Privacy & Quiet</h3>
+          <p class="text-warm-taupe font-serif leading-relaxed flex-grow">
+            Soundproofing ensures your sessions remain completely confidential. There are no interruptions, no distractions—just dedicated, focused time for your healing and growth.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      
+      <div class="fade-in-up fade-in-up-2">
+        <div class="relative rounded-3xl overflow-hidden shadow-lg h-72">
+          <img
+            src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop"
+            alt="Comfortable seating in therapy office"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-sage/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/40 to-transparent">
+            <p class="text-white font-serif font-bold">Comfortable, Welcoming Seating</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-in-up fade-in-up-3">
+        <div class="relative rounded-3xl overflow-hidden shadow-lg h-72">
+          <img
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop"
+            alt="Calming office amenities and thoughtful design details"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-sage/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/40 to-transparent">
+            <p class="text-white font-serif font-bold">Thoughtfully Designed Details</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- What to Expect Section -->
+     
+    <div class="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-soft-sand/30 fade-in-up fade-in-up-3">
+      <h3 class="text-3xl font-serif font-bold text-text-dark mb-8">What You Can Expect When You Visit</h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <div class="space-y-4">
+          <div class="flex gap-4">
+            <div class="text-3xl text-sage flex-shrink-0">✓</div>
+            <div>
+              <p class="font-serif font-bold text-text-dark mb-2">Warm Welcome</p>
+              <p class="text-warm-taupe font-serif text-sm">You'll be greeted warmly and given time to settle in before we begin your session.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="text-3xl text-sage flex-shrink-0">✓</div>
+            <div>
+              <p class="font-serif font-bold text-text-dark mb-2">Uncluttered Space</p>
+              <p class="text-warm-taupe font-serif text-sm">The environment is intentionally minimal and calm, allowing you to focus entirely on your therapeutic work.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="text-3xl text-sage flex-shrink-0">✓</div>
+            <div>
+              <p class="font-serif font-bold text-text-dark mb-2">Privacy Assured</p>
+              <p class="text-warm-taupe font-serif text-sm">Complete confidentiality is maintained through soundproofing and secure, private entrances.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="flex gap-4">
+            <div class="text-3xl text-sage flex-shrink-0">✓</div>
+            <div>
+              <p class="font-serif font-bold text-text-dark mb-2">Comfortable Seating</p>
+              <p class="text-warm-taupe font-serif text-sm">Multiple comfortable seating options allow you to choose what feels right for your session.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="text-3xl text-sage flex-shrink-0">✓</div>
+            <div>
+              <p class="font-serif font-bold text-text-dark mb-2">Grounding Elements</p>
+              <p class="text-warm-taupe font-serif text-sm">Natural light, plants, and calming décor create an environment that supports safety and relaxation.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="text-3xl text-sage flex-shrink-0">✓</div>
+            <div>
+              <p class="font-serif font-bold text-text-dark mb-2">Both In-Person & Telehealth</p>
+              <p class="text-warm-taupe font-serif text-sm">Whether you visit in person or connect via secure video, the same care and attention awaits you.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Location & Access -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+      
+      <div class="text-center fade-in-up fade-in-up-1">
+        <p class="text-5xl mb-4">📍</p>
+        <h4 class="font-serif font-bold text-text-dark mb-2">Location</h4>
+        <p class="text-warm-taupe font-serif text-sm">
+          123 West 45th Street<br />
+          Santa Monica, CA 90401
+        </p>
+      </div>
+
+      <div class="text-center fade-in-up fade-in-up-2">
+        <p class="text-5xl mb-4">🕐</p>
+        <h4 class="font-serif font-bold text-text-dark mb-2">Availability</h4>
+        <p class="text-warm-taupe font-serif text-sm">
+          Flexible scheduling<br />
+          Available throughout the week
+        </p>
+      </div>
+
+      <div class="text-center fade-in-up fade-in-up-3">
+        <p class="text-5xl mb-4">💻</p>
+        <h4 class="font-serif font-bold text-text-dark mb-2">Virtual Options</h4>
+        <p class="text-warm-taupe font-serif text-sm">
+          Secure telehealth sessions<br />
+          For all California-based clients
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- CTA SECTION -->
+<section id="contact" class="section-bg py-16 md:py-24">
+  <div class="max-w-2xl mx-auto px-6 text-center">
+    <h2 class="text-4xl md:text-5xl font-serif font-bold text-text-dark mb-6">
+      Ready to Start Your Journey?
+    </h2>
+
+    <p class="text-lg text-warm-taupe font-serif mb-10 leading-relaxed">
+      If you're looking for a therapist who combines practical tools with depth-oriented work and understands the realities of living in a fast-paced environment, I may be a good fit.
+    </p>
+
+    <button class="btn-primary text-lg mb-6 cursor-pointer">Schedule a Free 15-Minute Consultation</button>
+
+    <p class="text-sm text-warm-taupe font-serif">
+      Based in Santa Monica, CA • Serving California clients in-person and via telehealth
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-deep-clay text-warm-cream py-12">
+  <div class="max-w-7xl mx-auto px-6 text-center space-y-4">
+    <p class="font-serif font-bold">Dr. Maya Reynolds, PsyD</p>
+    <p class="text-warm-cream/80 font-serif text-sm">
+      Licensed Clinical Psychologist • Santa Monica, CA
+    </p>
+    <div class="divider-line opacity-30 my-6"></div>
+    <p class="text-warm-cream/70 font-serif text-xs">
+      © 2024 Dr. Maya Reynolds. All rights reserved.
+    </p>
+  </div>
+</footer>
+<script src="script1.js"></script>
+</body>
+</html>
